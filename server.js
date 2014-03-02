@@ -1,6 +1,7 @@
 var   express   = require('express')
     , site      = require('./site')
-    , server    = 'http://oauth-demo-lb-1153782776.ap-southeast-2.elb.amazonaws.com'
+    , server    = process.env.SERVER || 'http://oauth-demo-lb-1153782776.ap-southeast-2.elb.amazonaws.com'
+    , host      = process.env.HOST || 'http://oauth-demo-client-lb-1876871782.ap-southeast-2.elb.amazonaws.com'
 ;
 
 
@@ -16,7 +17,7 @@ app.use(express.bodyParser());
 app.get('/', site.home);
 
 app.get('/login', function(req, res){
-    res.redirect(server + '/dialog/authorize?response_type=code&client_id=abc123&redirect_uri=http://localhost:3001/oauth')
+    res.redirect(server + '/dialog/authorize?response_type=code&client_id=abc123&redirect_uri=' + host + '/oauth')
 });
 
 
@@ -28,7 +29,7 @@ function convertAccessCodeToToken(req, res, next){
                     code: req.query.code,
                     client_id: 'abc123',
                     client_secret: 'ssh-secret',
-                    redirect_uri: 'http://localhost:3001/oauth',
+                    redirect_uri: host + '/oauth',
                     grant_type: 'authorization_code'
                 }
             },
