@@ -1,0 +1,26 @@
+{
+  "name": "node-oauth2",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "oauth2orize": "~1.0.1",
+    "express": "~3.4.8",
+    "step": "0.0.5",
+    "handlebars": "~2.0.0",
+    "consolidate": "git://github.com/simov/consolidate.js",
+    "passport": "~0.2.0",
+    "passport-http-bearer": "~1.0.1",
+    "passport-oauth2-client-password": "~0.1.1",
+    "passport-local": "~0.1.6",
+    "passport-http": "~0.2.2",
+    "connect": "~2.13.0",
+    "request": "~2.34.0",
+    "querystring": "~0.2.0"
+  }
+}
